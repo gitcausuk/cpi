@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centre for Pedagogical Innovation | Said Business School, University of Oxford</title>
+<meta name="description" content="The Centre for Pedagogical Innovation at Oxford Said Business School - advancing teaching excellence through AI, immersive technology, and evidence-based pedagogy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:     #002147;
+  --navy-dk:  #001530;
+  --navy-md:  #1a3a6b;
+  --gold:     #C8930A;
+  --gold-lt:  #E2A800;
+  --gold-pale:#FDF3D8;
+  --stone:    #D4CFC3;
+  --stone-lt: #EAE6DD;
+  --cream:    #F5F2EC;
+  --bg:       #F0EDE6;
+  --white:    #FFFFFF;
+  --bd:       #D0CBC0;
+  --tx:       #1A1A1A;
+  --muted:    #4A4A4A;
+  --light:    #888075;
+  --serif:    'Noto Serif', Georgia, serif;
+  --sans:     'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--sans); background: var(--bg); color: var(--tx); line-height: 1.6; }
+.skip-link {
+  position: absolute; left: 1rem; top: -3rem; z-index: 500;
+  background: var(--gold); color: var(--navy); padding: 0.75rem 1rem;
+  border-radius: 4px; text-decoration: none; font-weight: 600;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 1rem; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid rgba(226,168,0,0.78);
+  outline-offset: 3px;
+}
+
+.nav-links a, .nav-cta, .btn-gold, .btn-outline-light, .tas-link, .toolkit-tool, .footer-links a, .mobile-cta, .form-submit {
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ---- UTILITY ---- */
+.label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 0.875rem;
+}
+.label::before {
+  content: ""; display: block;
+  width: 28px; height: 1.5px; background: var(--gold);
+}
+.rule { border: none; border-top: 1px solid var(--bd); margin: 2rem 0; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+section { padding: 5rem 2rem; }
+
+/* ---- NAV ---- */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(0, 33, 71, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200, 147, 10, 0.25);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 80px;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 16px;
+  text-decoration: none; flex-shrink: 0;
+}
+.nav-cpi {
+  font-family: var(--sans); font-size: 62px; font-weight: 600;
+  letter-spacing: -0.02em; display: flex; align-items: baseline;
+}
+.nav-cpi .cp { color: #fff; }
+.nav-cpi .pi { color: var(--gold-lt); font-style: italic; font-weight: 300; }
+.nav-vline { width: 1px; height: 22px; background: rgba(200,147,10,0.3); }
+.nav-school { font-size: 10.5px; color: rgba(255,255,255,0.45); letter-spacing: 0.04em; line-height: 1.45; }
+.nav-links {
+  display: flex; align-items: center; gap: 0; list-style: none;
+  margin: 0 auto; padding: 0 2rem;
+}
+.nav-links a {
+  font-size: 13px; font-weight: 400; letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.65); text-decoration: none;
+  padding: 0.5rem 0.875rem; display: block;
+  transition: color 0.15s; white-space: nowrap;
+}
+.nav-links a:hover { color: #fff; }
+.nav-cta {
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  padding: 8px 20px; border-radius: 3px; flex-shrink: 0;
+  background: var(--gold); color: var(--navy);
+  text-decoration: none; transition: background 0.15s; white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.nav-cta:hover { background: var(--gold-lt); }
+
+/* hamburger */
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 6px; background: none; border: none;
+}
+.nav-hamburger span {
+  width: 22px; height: 1.5px; background: rgba(255,255,255,0.8);
+  display: block; transition: all 0.2s;
+}
+
+/* mobile dropdown */
+#mobile-nav {
+  display: none; position: fixed; top: 80px; left: 0; right: 0;
+  background: rgba(0,21,48,0.99); z-index: 190;
+  border-bottom: 1px solid rgba(200,147,10,0.2);
+  padding: 1.5rem 2rem 2rem;
+}
+#mobile-nav.open { display: block; }
+#mobile-nav ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+#mobile-nav ul li a {
+  display: block; padding: 0.8rem 0;
+  font-size: 15px; color: rgba(255,255,255,0.75); text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.15s;
+}
+#mobile-nav ul li a:hover { color: #fff; }
+#mobile-nav ul li:last-child a { border-bottom: none; }
+#mobile-nav .mobile-cta {
+  display: block; margin-top: 1.25rem; text-align: center;
+  background: var(--gold); color: var(--navy);
+  font-weight: 600; font-size: 14px; padding: 12px;
+  border-radius: 3px; text-decoration: none;
+}
+
+/* ---- HERO ---- */
+.hero {
+  min-height: 100vh; padding: 120px 2rem 80px;
+  background: linear-gradient(160deg, #000d1c 0%, #001127 45%, #001d3d 75%, #002147 100%);
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: "";
+  position: absolute; top: 0; right: 0; bottom: 0;
+  width: 45%;
+  background: linear-gradient(160deg, transparent 0%, rgba(200,147,10,0.035) 100%);
+  pointer-events: none;
+}
+
+/* Staircase - pure CSS, no emojis */
+.hero-stair {
+  position: absolute; right: 0; top: 50%;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 16px;
+  align-items: flex-end; pointer-events: none; opacity: 0.05;
+}
+.hero-stair-bar {
+  height: 30px; background: #fff; border-radius: 2px;
+}
+
+.hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+
+.hero-lockup {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 2.5rem;
+  border: 1px solid rgba(200,147,10,0.2);
+  border-radius: 4px; padding: 12px 18px;
+  background: rgba(255,255,255,0.03);
+  width: fit-content;
+}
+.hero-cpi-mark {
+  font-family: var(--sans); font-size: 44px; font-weight: 600;
+  letter-spacing: -0.025em; display: flex; align-items: baseline;
+}
+.hero-cpi-mark .cp { color: #fff; }
+.hero-cpi-mark .pi { color: var(--gold-lt); font-style: italic; font-weight: 300; }
+.hero-lockup-divider { width: 1px; height: 42px; background: rgba(200,147,10,0.25); }
+.hero-lockup-text { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5; letter-spacing: 0.03em; }
+.hero-lockup-text strong { display: block; color: rgba(255,255,255,0.65); font-weight: 500; font-size: 13px; }
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.25rem, 5.5vw, 4rem);
+  font-weight: 700; color: #fff;
+  line-height: 1.08; letter-spacing: -0.025em;
+  margin-bottom: 1.5rem; max-width: 680px;
+}
+.hero h1 em { color: var(--gold-lt); font-style: normal; }
+
+.hero-divider {
+  width: 56px; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin-bottom: 1.5rem;
+}
+.hero-desc {
+  font-family: var(--serif); font-size: 1.1rem; font-style: italic;
+  color: rgba(255,255,255,0.58); line-height: 1.75;
+  max-width: 560px; margin-bottom: 2.75rem;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+.btn-gold {
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  padding: 13px 30px; border-radius: 3px; letter-spacing: 0.03em;
+  background: var(--gold); color: var(--navy); text-decoration: none;
+  transition: all 0.18s; box-shadow: 0 4px 18px rgba(200,147,10,0.28);
+}
+.btn-gold:hover { background: var(--gold-lt); box-shadow: 0 6px 24px rgba(200,147,10,0.38); transform: translateY(-1px); }
+
+.btn-outline-light {
+  font-family: var(--sans); font-size: 14px; font-weight: 400;
+  padding: 12px 26px; border-radius: 3px; letter-spacing: 0.02em;
+  border: 1px solid rgba(255,255,255,0.22); color: rgba(255,255,255,0.82);
+  text-decoration: none; transition: all 0.18s;
+}
+.btn-outline-light:hover { border-color: rgba(255,255,255,0.45); color: #fff; }
+
+.hero-stats {
+  display: flex; flex-wrap: wrap; gap: 3rem;
+  margin-top: 4.5rem; padding-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.hero-stat-n {
+  font-family: var(--serif); font-size: 2.1rem; font-weight: 700;
+  color: var(--gold-lt); line-height: 1; margin-bottom: 5px;
+}
+.hero-stat-l { font-size: 11px; color: rgba(255,255,255,0.38); letter-spacing: 0.07em; text-transform: uppercase; }
+.hero-strip {
+  margin-top: 1.5rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.875rem;
+}
+.hero-strip-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px; padding: 1rem 1.1rem;
+}
+.hero-strip-k {
+  display: block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold-lt); margin-bottom: 0.35rem;
+}
+.hero-strip-card strong {
+  display: block; color: #fff; font-family: var(--serif); font-size: 0.98rem; line-height: 1.35;
+}
+.hero-strip-card span {
+  display: block; margin-top: 0.4rem; font-size: 12.5px; color: rgba(255,255,255,0.54); line-height: 1.55;
+}
+
+
+/* ---- ABOUT ---- */
+#about { background: var(--cream); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+.about-body h2 {
+  font-family: var(--serif); font-size: clamp(1.7rem, 2.5vw, 2.4rem);
+  font-weight: 700; color: var(--navy);
+  line-height: 1.15; letter-spacing: -0.018em; margin-bottom: 1.25rem;
+}
+.about-body p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+.about-body p:last-child { margin-bottom: 0; }
+.about-body strong { color: var(--navy); font-weight: 600; }
+
+.about-aside { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.about-card-navy {
+  background: var(--navy); border-radius: 4px; padding: 2rem 2.25rem;
+  position: relative; overflow: hidden;
+}
+.about-card-navy::before {
+  content: ""; position: absolute; bottom: -40px; right: -40px;
+  width: 130px; height: 130px; border-radius: 50%;
+  background: rgba(200,147,10,0.07); pointer-events: none;
+}
+.about-card-navy .label { color: var(--gold-lt); }
+.about-card-navy .label::before { background: var(--gold-lt); }
+.about-card-navy h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: #fff; margin-bottom: 0.875rem; }
+.about-card-navy p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+
+.about-card-stone {
+  background: var(--stone-lt); border: 1px solid var(--bd);
+  border-radius: 4px; padding: 1.5rem 1.75rem;
+}
+.about-card-stone .label { color: var(--navy); }
+.about-card-stone .label::before { background: var(--navy); opacity: 0.4; }
+.alignment-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.alignment-list li {
+  font-size: 13.5px; color: var(--muted); padding: 0.5rem 0.875rem;
+  border-left: 2px solid var(--stone); background: rgba(255,255,255,0.5);
+  border-radius: 0 2px 2px 0;
+}
+.alignment-list li:first-child { border-left-color: var(--gold); }
+
+/* ---- PILLARS ---- */
+#pillars { background: var(--navy); }
+#pillars .label { color: var(--gold-lt); }
+#pillars .label::before { background: var(--gold-lt); }
+#pillars .section-h { font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2.4rem); font-weight: 700; color: #fff; line-height: 1.15; letter-spacing: -0.018em; margin-bottom: 0.75rem; }
+#pillars .section-intro { font-size: 1.025rem; color: rgba(255,255,255,0.5); line-height: 1.75; max-width: 600px; margin-bottom: 2.75rem; }
+
+.pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.pillar {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 2px solid rgba(200,147,10,0.35);
+  border-radius: 0 0 4px 4px;
+  padding: 1.75rem 1.625rem;
+  transition: all 0.2s;
+}
+.pillar:hover {
+  background: rgba(255,255,255,0.07);
+  border-top-color: var(--gold);
+  transform: translateY(-3px);
+}
+.pillar-num {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 0.625rem;
+}
+.pillar h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 0.75rem; }
+.pillar p { font-size: 13.5px; color: rgba(255,255,255,0.52); line-height: 1.75; }
+
+/* ---- PROGRAMMES ---- */
+#programmes { background: var(--cream); }
+.section-h { font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2.4rem); font-weight: 700; color: var(--navy); line-height: 1.15; letter-spacing: -0.018em; margin-bottom: 0.75rem; }
+.section-intro { font-size: 1.025rem; color: var(--muted); line-height: 1.75; max-width: 600px; margin-bottom: 2.75rem; }
+
+.prog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.prog-card {
+  background: var(--white); border: 1px solid var(--bd);
+  border-left: 3px solid var(--bd); border-radius: 0 4px 4px 0;
+  padding: 1.75rem; transition: all 0.2s;
+}
+.prog-card:hover { border-left-color: var(--gold); box-shadow: 0 6px 28px rgba(0,33,71,0.09); transform: translateY(-2px); }
+.prog-tag { font-size: 9.5px; font-weight: 700; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.625rem; }
+.prog-card h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.625rem; }
+.prog-card p { font-size: 13.5px; color: var(--muted); line-height: 1.75; }
+.prog-meta {
+  margin-top: 1.25rem; padding-top: 1rem;
+  border-top: 1px solid var(--bd);
+  font-size: 11.5px; color: var(--light); letter-spacing: 0.02em;
+}
+
+/* ---- RESEARCH ---- */
+#research { background: var(--white); }
+.research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.research-item {
+  background: var(--cream); border: 1px solid var(--bd);
+  border-radius: 4px; padding: 1.5rem 1.625rem;
+}
+.ri-tag { font-size: 9.5px; font-weight: 700; color: var(--navy); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; opacity: 0.45; }
+.research-item h4 { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+.research-item p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+.research-partnership {
+  margin-top: 2rem; padding: 1.625rem 1.875rem;
+  background: var(--navy); border-radius: 4px;
+  border-left: 3px solid var(--gold);
+}
+.research-partnership p { font-size: 14.5px; color: rgba(255,255,255,0.62); line-height: 1.8; }
+.research-partnership em { font-style: italic; color: rgba(255,255,255,0.8); }
+
+/* ---- TEAM ---- */
+#team { background: var(--cream); }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+.team-card {
+  background: var(--white); border: 1px solid var(--bd); border-radius: 4px;
+  padding: 1.875rem 1.625rem;
+  transition: all 0.18s;
+}
+.team-card:hover { box-shadow: 0 6px 24px rgba(0,33,71,0.08); transform: translateY(-2px); }
+
+.team-avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(145deg, var(--navy), var(--navy-md));
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.125rem;
+  font-family: var(--serif); font-size: 1.25rem; font-weight: 700; color: #fff;
+  letter-spacing: -0.01em;
+}
+.team-card.director .team-avatar {
+  width: 80px; height: 80px; font-size: 1.45rem;
+  box-shadow: 0 0 0 3px var(--white), 0 0 0 4.5px var(--gold);
+}
+
+.team-card h4 { font-family: var(--serif); font-size: 1.025rem; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+.team-card .role { font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+.team-card .dept { font-size: 12.5px; color: var(--light); line-height: 1.5; }
+
+.faculty-note {
+  margin-top: 1.5rem; padding: 1.5rem 1.75rem;
+  background: var(--white); border: 1px solid var(--bd); border-radius: 4px;
+}
+.faculty-note p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+/* ---- TOOLKIT ---- */
+#toolkit { background: var(--navy); padding: 4.5rem 2rem; }
+.toolkit-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.toolkit-left h2 { font-family: var(--serif); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: #fff; margin-bottom: 1rem; line-height: 1.2; }
+.toolkit-left .label { color: var(--gold-lt); }
+.toolkit-left .label::before { background: var(--gold-lt); }
+.toolkit-left p { font-size: 14.5px; color: rgba(255,255,255,0.56); line-height: 1.8; margin-bottom: 1.75rem; }
+.toolkit-tools { display: flex; flex-direction: column; gap: 0.875rem; }
+.toolkit-tool {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 4px; padding: 1.125rem 1.25rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; text-decoration: none; transition: all 0.18s;
+}
+.toolkit-tool:hover { background: rgba(255,255,255,0.08); border-color: rgba(200,147,10,0.3); transform: translateX(4px); }
+.toolkit-tool-content h4 { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 3px; }
+.toolkit-tool-content p { font-size: 12px; color: rgba(255,255,255,0.4); }
+.toolkit-tool-arrow { font-size: 14px; color: rgba(255,255,255,0.3); flex-shrink: 0; font-style: normal; }
+
+/* ---- EVENTS ---- */
+#events { background: var(--cream); }
+.events-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.event-card {
+  background: var(--white); border: 1px solid var(--bd); border-radius: 4px;
+  padding: 1.5rem; display: flex; gap: 1.25rem; align-items: flex-start;
+  transition: box-shadow 0.18s;
+}
+.event-card:hover { box-shadow: 0 4px 18px rgba(0,33,71,0.07); }
+.event-date {
+  background: var(--navy); border-radius: 3px;
+  padding: 0.625rem 0.875rem; text-align: center; flex-shrink: 0; min-width: 60px;
+}
+.event-date .em { font-size: 10px; font-weight: 700; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; }
+.event-date .ed { font-family: var(--serif); font-size: 1.35rem; font-weight: 700; color: #fff; line-height: 1.1; }
+.event-body .ev-tag { font-size: 9.5px; font-weight: 700; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 5px; }
+.event-body h4 { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
+.event-body p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ---- CONTACT ---- */
+#contact { background: var(--navy); padding: 5rem 2rem; }
+.contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: start; }
+.contact-left { }
+.contact-left .label { color: var(--gold-lt); }
+.contact-left .label::before { background: var(--gold-lt); }
+.contact-left h2 { font-family: var(--serif); font-size: clamp(1.75rem, 2.5vw, 2.25rem); font-weight: 700; color: #fff; margin-bottom: 1rem; line-height: 1.15; }
+.contact-left > p { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 2rem; }
+
+.contact-detail { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.375rem; }
+.contact-detail-icon {
+  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+.cd-svg { width: 16px; height: 16px; fill: none; stroke: rgba(255,255,255,0.5); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.contact-detail-text h5 { font-size: 10.5px; font-weight: 700; color: rgba(255,255,255,0.38); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+.contact-detail-text p { font-size: 14.5px; color: rgba(255,255,255,0.85); line-height: 1.55; }
+.contact-detail-text a { color: var(--gold-lt); text-decoration: none; }
+.contact-detail-text a:hover { text-decoration: underline; }
+
+.contact-form {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px; padding: 2.25rem;
+}
+.contact-form h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: #fff; margin-bottom: 1.5rem; }
+.form-group { margin-bottom: 1.125rem; }
+.form-group label { display: block; font-size: 10.5px; font-weight: 700; color: rgba(255,255,255,0.4); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; font-family: var(--sans); font-size: 14px;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12); border-radius: 3px;
+  padding: 10px 14px; outline: none; transition: border-color 0.15s;
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: rgba(200,147,10,0.5); }
+.form-group textarea { min-height: 100px; resize: vertical; }
+.form-group select option { background: var(--navy-dk); color: #fff; }
+.form-submit {
+  width: 100%; font-family: var(--sans); font-size: 14px; font-weight: 600;
+  padding: 12px; border-radius: 3px; border: none; cursor: pointer;
+  background: var(--gold); color: var(--navy); transition: background 0.15s;
+  margin-top: 0.5rem; letter-spacing: 0.03em;
+}
+.form-submit:hover { background: var(--gold-lt); }
+
+/* ---- FOOTER ---- */
+footer {
+  background: var(--navy-dk); border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 2.5rem 2rem;
+}
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; gap: 1.5rem;
+  align-items: center; justify-content: space-between;
+}
+.footer-left p { font-size: 12px; color: rgba(255,255,255,0.28); line-height: 1.7; }
+.footer-left a { color: rgba(255,255,255,0.35); text-decoration: none; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.footer-links a {
+  font-size: 12px; color: rgba(255,255,255,0.3);
+  text-decoration: none; padding: 4px 12px;
+  border: 1px solid rgba(255,255,255,0.07); border-radius: 2px;
+  transition: all 0.15s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.15); }
+
+
+/* ---- IMPACT ---- */
+#impact { background: var(--cream); }
+.impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.impact-card {
+  background: var(--white); border: 1px solid var(--bd); border-radius: 4px; padding: 1.65rem 1.5rem;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.01);
+}
+.impact-card h3 { font-family: var(--serif); font-size: 1.08rem; font-weight: 600; color: var(--navy); margin-bottom: 0.65rem; }
+.impact-card p { font-size: 13.5px; color: var(--muted); line-height: 1.75; margin-bottom: 0.9rem; }
+.impact-badge { font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+.impact-card ul { list-style: none; margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.45rem; }
+.impact-card li { font-size: 13px; color: var(--muted); padding-left: 1rem; position: relative; }
+.impact-card li::before { content: '›'; position: absolute; left: 0; color: var(--gold); }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1000px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .about-grid, .toolkit-inner, .contact-inner { grid-template-columns: 1fr; }
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  .impact-grid { grid-template-columns: 1fr; }
+  .hero-strip { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .pillars-grid { grid-template-columns: 1fr; }
+  .prog-grid { grid-template-columns: 1fr; }
+  .research-grid { grid-template-columns: 1fr; }
+  .events-grid { grid-template-columns: 1fr; }
+  section { padding: 3.5rem 1.25rem; }
+  .hero { padding: 100px 1.25rem 60px; }
+  .hero h1 { font-size: clamp(1.85rem, 8vw, 2.5rem); }
+  .hero-stair { display: none; }
+  .toolkit-inner { gap: 2.5rem; }
+  .contact-inner { gap: 2.5rem; }
+  #toolkit { padding: 3.5rem 1.25rem; }
+  #contact { padding: 3.5rem 1.25rem; }
+  .space-grid { grid-template-columns: 1fr !important; }
+  .impact-grid { grid-template-columns: 1fr; }
+  .partners-grid { grid-template-columns: repeat(2,1fr) !important; }
+}
+
+/* ---- SCROLL FADE ---- */
+.fade-up {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ---- PHYSICAL SPACE ---- */
+#space { background: var(--navy-dk); padding: 5rem 2rem; }
+#space .label { color: var(--gold-lt); }
+#space .label::before { background: var(--gold-lt); }
+.space-intro-h {
+  font-family: var(--serif); font-size: clamp(1.6rem,2.5vw,2.4rem);
+  font-weight: 700; color: #fff; line-height: 1.15;
+  letter-spacing: -0.018em; margin-bottom: 0.75rem;
+}
+.space-intro-p { font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.75; max-width: 700px; margin-bottom: 2.5rem; }
+
+.space-hero-img {
+  width: 100%; position: relative; border-radius: 8px; overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.55); margin-bottom: 2.5rem;
+}
+.space-hero-img img { width: 100%; display: block; max-height: 520px; object-fit: cover; object-position: center; }
+.space-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,10,26,0.92) 0%, rgba(0,10,26,0.45) 50%, rgba(0,10,26,0.15) 100%);
+}
+.space-hero-text {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 3rem 2.5rem 2rem;
+}
+.space-hero-text .space-vision-tag {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold-lt); display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem;
+}
+.space-hero-text .space-vision-tag::before {
+  content: ""; display: block; width: 28px; height: 1.5px; background: var(--gold-lt);
+}
+.space-hero-text h3 {
+  font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 700; color: #fff; line-height: 1.12; letter-spacing: -0.02em;
+  max-width: 680px; margin-bottom: 0.75rem;
+}
+.space-hero-text p {
+  font-size: 14.5px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 580px;
+}
+
+.space-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: start;
+}
+.space-col {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 4px; padding: 1.5rem 1.625rem;
+}
+.space-col-head {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 0.875rem;
+}
+.space-col-icon {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(200,147,10,0.12); border: 1px solid rgba(200,147,10,0.2);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.space-col-icon svg { width: 15px; height: 15px; stroke: var(--gold-lt); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.space-col h4 { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: #fff; }
+.space-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+.space-col ul li { font-size: 13px; color: rgba(255,255,255,0.5); padding-left: 1rem; position: relative; }
+.space-col ul li::before { content: "›"; position: absolute; left: 0; color: var(--gold); }
+
+/* ---- TEACHING AT SAID ---- */
+#tas { background: var(--cream); padding: 4.5rem 2rem; }
+.tas-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+@media (max-width: 800px) { .tas-inner { grid-template-columns: 1fr; } }
+.tas-img-wrap {
+  border-radius: 6px; overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,33,71,0.14);
+}
+.tas-img-wrap img { width: 100%; display: block; }
+.tas-body .label { }
+.tas-body h2 {
+  font-family: var(--serif); font-size: clamp(1.5rem,2.2vw,2rem);
+  font-weight: 700; color: var(--navy); line-height: 1.18;
+  letter-spacing: -0.018em; margin-bottom: 1rem;
+}
+.tas-body p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+.tas-body p:last-of-type { margin-bottom: 1.5rem; }
+.tas-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.tas-link {
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--navy); border: 1px solid var(--bd);
+  padding: 7px 14px; border-radius: 3px; text-decoration: none;
+  transition: all 0.15s; background: var(--white);
+}
+.tas-link:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ---- PARTNERS ---- */
+#partners { background: var(--white); padding: 4.5rem 2rem; }
+.partners-header { max-width: 1100px; margin: 0 auto 2.5rem; }
+.partners-header h2 { font-family: var(--serif); font-size: clamp(1.6rem,2.5vw,2.2rem); font-weight: 700; color: var(--navy); letter-spacing: -0.018em; margin-bottom: 0.625rem; }
+.partners-header p { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 600px; }
+.partners-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem;
+}
+.partner-card {
+  background: var(--cream); border: 1px solid var(--bd); border-radius: 4px;
+  padding: 1.625rem 1.5rem; transition: all 0.18s;
+  border-top: 2px solid var(--bd);
+}
+.partner-card:hover { border-top-color: var(--gold); box-shadow: 0 6px 22px rgba(0,33,71,0.07); transform: translateY(-2px); }
+.partner-tag { font-size: 9px; font-weight: 700; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.partner-card h4 { font-family: var(--serif); font-size: 0.975rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.3; }
+.partner-card p { font-size: 12.5px; color: var(--muted); line-height: 1.65; }
+.partners-note { max-width: 1100px; margin: 1.75rem auto 0; padding: 1.25rem 1.5rem; background: var(--cream); border: 1px solid var(--bd); border-radius: 4px; border-left: 3px solid var(--gold); }
+.partners-note p { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#about">Skip to content</a>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-brand">
+      <div class="nav-cpi"><span class="cp">CP</span><span class="pi">i</span></div>
+      <div class="nav-vline"></div>
+      <div class="nav-school">Said Business School<br>University of Oxford</div>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#pillars">Mission</a></li>
+      <li><a href="#programmes">Programmes</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#space">The Space</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#toolkit">Toolkit</a></li>
+    </ul>
+
+    <a href="#contact" class="nav-cta">Get Involved</a>
+
+    <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleNav(this)">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <ul>
+    <li><a href="#about" onclick="closeNav()">About</a></li>
+    <li><a href="#impact" onclick="closeNav()">Impact</a></li>
+    <li><a href="#pillars" onclick="closeNav()">Mission</a></li>
+    <li><a href="#programmes" onclick="closeNav()">Programmes</a></li>
+    <li><a href="#research" onclick="closeNav()">Research</a></li>
+    <li><a href="#space" onclick="closeNav()">The Space</a></li>
+    <li><a href="#team" onclick="closeNav()">Team</a></li>
+    <li><a href="#events" onclick="closeNav()">Events</a></li>
+    <li><a href="#toolkit" onclick="closeNav()">Toolkit</a></li>
+  </ul>
+  <a href="#contact" class="mobile-cta" onclick="closeNav()">Get Involved</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-stair" aria-hidden="true">
+    <div class="hero-stair-bar" style="width:220px"></div>
+    <div class="hero-stair-bar" style="width:176px"></div>
+    <div class="hero-stair-bar" style="width:132px"></div>
+    <div class="hero-stair-bar" style="width:88px"></div>
+    <div class="hero-stair-bar" style="width:44px"></div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-lockup">
+      <div class="hero-cpi-mark"><span class="cp">CP</span><span class="pi">i</span></div>
+      <div class="hero-lockup-divider"></div>
+      <div class="hero-lockup-text">
+        <strong>Centre for Pedagogical Innovation</strong>
+        Said Business School, University of Oxford
+      </div>
+    </div>
+
+    <div class="label">Teaching Excellence and Innovation</div>
+
+    <h1>Where <em>Teaching</em><br>Meets Discovery</h1>
+
+    <div class="hero-divider"></div>
+
+    <p class="hero-desc">
+      The Centre for Pedagogical Innovation advances teaching excellence at Said Business School through AI, immersive technology, evidence-based pedagogy, and scholarly inquiry into learning itself.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#programmes" class="btn-gold">Explore Programmes</a>
+      <a href="#about" class="btn-outline-light">About the Centre</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-n">Oct 2026</div>
+        <div class="hero-stat-l">Pilot Launch</div>
+      </div>
+      <div>
+        <div class="hero-stat-n">5</div>
+        <div class="hero-stat-l">Use Case Areas</div>
+      </div>
+      <div>
+        <div class="hero-stat-n">AI + XR</div>
+        <div class="hero-stat-l">Technology Focus</div>
+      </div>
+      <div>
+        <div class="hero-stat-n">£0</div>
+        <div class="hero-stat-l">School Investment to Date</div>
+      </div>
+    </div>
+
+    <div class="hero-strip" aria-label="Key audiences and outcomes">
+      <div class="hero-strip-card">
+        <span class="hero-strip-k">For faculty</span>
+        <strong>Less preparation, better sessions, clearer feedback loops.</strong>
+        <span>Practical tools, coaching, and pilot support for live teaching.</span>
+      </div>
+      <div class="hero-strip-card">
+        <span class="hero-strip-k">For students</span>
+        <strong>More engaging classes and richer learning experiences.</strong>
+        <span>Interactive discussions, simulations, and stronger formative feedback.</span>
+      </div>
+      <div class="hero-strip-card">
+        <span class="hero-strip-k">For the School</span>
+        <strong>Reusable practice backed by evidence, not hype.</strong>
+        <span>Projects that can be measured, shared, and scaled across programmes.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-body">
+        <div class="label">About</div>
+        <h2 class="fade-up">A New Kind of Teaching Lab at Said</h2>
+        <p>The Centre for Pedagogical Innovation (CPi) is a School-wide initiative at Said Business School, University of Oxford. It establishes a dedicated <strong>Teaching Innovation Lab</strong> for structured experimentation with generative AI and extended reality in education.</p>
+        <p>The CPi serves faculty, researchers, students, and teaching staff at Said Business School, with a clear ambition to expand its reach across the wider University as the model matures. It provides a <strong>structured, low-risk environment</strong> to experiment with new teaching approaches, evaluate their effectiveness, and translate findings into publishable research and improved practice.</p>
+        <p>This is a genuinely collaborative initiative, co-designed with the School's Digital and Technology leadership, faculty champions, student representatives, and the University's AI and Machine Learning Competency Centre - with formal ties to the Centre for Teaching and Learning across the wider University.</p>
+      </div>
+      <div class="about-aside">
+        <div class="about-card-navy">
+          <div class="label">Our Foundation</div>
+          <h3>Built on the Oxford Tutorial Ethos</h3>
+          <p>Oxford's tutorial model is the most celebrated pedagogical model in the world. The CPi translates that ethos into the MBA and EMBA context, using AI and immersive technology to free instructors for richer interaction, not to replace it.</p>
+        </div>
+        <div class="about-card-stone">
+          <div class="label">Strategic Fit</div>
+          <ul class="alignment-list">
+            <li>Oxford Strategic Plan 2025-2030: Teaching Excellence (Priority 2)</li>
+            <li>Said Strategic Ambitions 2024-2029: Pedagogical Innovation (Priority 5)</li>
+            <li>Said Strategic Ambitions 2024-2029: Collaborative Culture (Priority 7)</li>
+            <li>Oxford Academic Career &amp; Reward Framework: Teaching Excellence Pathway</li>
+            <li>AACSB &amp; EQUIS: Continuous Improvement and Teaching Quality Standards</li>
+            <li>Oxford-OpenAI Partnership on AI in Education</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-inner">
+    <div class="label">Why it Matters</div>
+    <h2 class="section-h fade-up">Designed to improve teaching, not just showcase technology</h2>
+    <p class="section-intro">The CPi is built around three practical outcomes: save time, improve learning, and generate evidence that the School can actually use.</p>
+    <div class="impact-grid">
+      <div class="impact-card fade-up">
+        <div class="impact-badge">Outcome 01</div>
+        <h3>Less admin, more teaching</h3>
+        <p>AI-supported planning, feedback, and assessment tools reduce repetitive work so faculty can spend more time on discussion, coaching, and live learning.</p>
+        <ul>
+          <li>Draft prompts and case materials faster</li>
+          <li>Support more consistent formative feedback</li>
+          <li>Free time for higher-value teaching interactions</li>
+        </ul>
+      </div>
+      <div class="impact-card fade-up">
+        <div class="impact-badge">Outcome 02</div>
+        <h3>More engaging learning experiences</h3>
+        <p>Interactive case studies, decision labs, and immersive environments make complex teaching more memorable, repeatable, and adaptable.</p>
+        <ul>
+          <li>Richer discussion and scenario design</li>
+          <li>More practice in realistic decision-making</li>
+          <li>Better support for hybrid and global cohorts</li>
+        </ul>
+      </div>
+      <div class="impact-card fade-up">
+        <div class="impact-badge">Outcome 03</div>
+        <h3>Evidence that can scale</h3>
+        <p>The CPi is built to test what works, measure it well, and share it across the School. Good ideas should become repeatable practice, not one-off experiments.</p>
+        <ul>
+          <li>Structured evaluation of each pilot</li>
+          <li>Clear pathway into SoTL publication</li>
+          <li>Reusable tools and methods for wider adoption</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars">
+  <div class="section-inner">
+    <div class="label">Mission</div>
+    <h2 class="section-h fade-up" style="color:#fff">Six Pillars of the CPi</h2>
+    <p class="section-intro">The Centre operates across six interconnected areas, each grounded in the Oxford and Said strategic plans, and each designed to strengthen the others and produce lasting improvements in teaching quality.</p>
+    <div class="pillars-grid">
+      <div class="pillar fade-up">
+        <div class="pillar-num">Pillar 01</div>
+        <h3>Teaching Innovation Lab</h3>
+        <p>A physical and virtual space for structured experimentation with generative AI and extended reality in pedagogy - a low-risk environment for faculty to try, evaluate, and refine new teaching approaches.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Pillar 02</div>
+        <h3>AI Literacy for Educators</h3>
+        <p>A structured professional development programme helping Oxford academics understand, critique, and confidently integrate AI into their teaching - grounded in pedagogy, not technology for its own sake.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Pillar 03</div>
+        <h3>Pedagogical Research</h3>
+        <p>A supported environment where new teaching methods are developed, rigorously evaluated, and translated into publishable scholarship - making the CPi a home for the Scholarship of Teaching and Learning at Oxford.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Pillar 04</div>
+        <h3>Student Partnership</h3>
+        <p>Students as active co-designers of the learning experience. The CPi's Student Consultants on Teaching programme embeds student voice in pedagogical evaluation, course redesign, and AI policy - directly reflecting Oxford's commitment to an inclusive educational experience that values individual difference.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Pillar 05</div>
+        <h3>Teaching Excellence</h3>
+        <p>The home of Teaching at Said - recognising and systematically improving teaching quality through peer observation, faculty development, and the annual Teaching Excellence Awards.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Pillar 06</div>
+        <h3>Assessment Redesign</h3>
+        <p>Supporting faculty in designing assessments that work in an AI-present world - that genuinely test what they intend to test, align with Oxford policy, and develop the skills graduates need.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMES -->
+<section id="programmes">
+  <div class="section-inner">
+    <div class="label">Programmes</div>
+    <h2 class="section-h">What We Offer</h2>
+    <p class="section-intro">The CPi delivers structured programmes for faculty, students, and academic staff at Said Business School.</p>
+    <div class="prog-grid">
+      <div class="prog-card">
+        <div class="prog-tag">Faculty Development</div>
+        <h3>AI Literacy for Educators</h3>
+        <p>A six-module blended programme for Said academic staff, with a clear path to expand across Oxford. Covers AI fundamentals, discipline-specific applications, pedagogical integration, assessment design, ethics, and hands-on toolkit building. Aligned with Oxford's AI assessment policy.</p>
+        <div class="prog-meta">6 modules &nbsp;|&nbsp; Blended delivery &nbsp;|&nbsp; Said pilot, expanding University-wide &nbsp;|&nbsp; Launching Michaelmas 2026</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-tag">MBA Programme</div>
+        <h3>AI Fluency for MBA Leaders</h3>
+        <p>A six-week module embedded in the Said MBA - making Said the first Oxford programme to formally require AI fluency for graduation. Covers AI strategy, data literacy, ethics, and an AI business case capstone.</p>
+        <div class="prog-meta">6 weeks &nbsp;|&nbsp; MBA cohort &nbsp;|&nbsp; Said Business School &nbsp;|&nbsp; Launching Michaelmas 2026</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-tag">Teaching Excellence</div>
+        <h3>Master Teachers at Oxford</h3>
+        <p>A termly seminar series where Oxford's finest educators demonstrate their practice publicly. One session per term, themed around the tutorial system, AI integration, and assessment design. Co-hosted with the Oxford Centre for Teaching and Learning.</p>
+        <div class="prog-meta">3 sessions per year &nbsp;|&nbsp; Open to Oxford academics &nbsp;|&nbsp; First session Michaelmas 2026</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-tag">Student Partnership</div>
+        <h3>Student Consultants on Teaching</h3>
+        <p>A structured programme pairing undergraduates with faculty members as pedagogical partners for one term. Students observe teaching sessions and provide structured feedback using the Oxford Student Consultant Protocol.</p>
+        <div class="prog-meta">One term &nbsp;|&nbsp; Said pilot &nbsp;|&nbsp; Zero cost &nbsp;|&nbsp; Launching Trinity 2026</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-tag">Peer Development</div>
+        <h3>Peer Observation of Teaching</h3>
+        <p>A formative, voluntary peer observation programme for Oxford academics. Cross-disciplinary pairs observe each other's teaching using the Oxford Peer Observation Framework - adapted for tutorials, seminars, and lectures.</p>
+        <div class="prog-meta">One cycle per term &nbsp;|&nbsp; Cross-divisional &nbsp;|&nbsp; Developmental, not evaluative</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-tag">Annual Conference</div>
+        <h3>Oxford Forum on Teaching, Learning and AI</h3>
+        <p>The UK's reference annual conference on AI and pedagogy in higher education. Co-chaired with the Oxford Centre for Teaching and Learning, hosted at Said. Open to practitioners from across UK and European higher education.</p>
+        <div class="prog-meta">Annual &nbsp;|&nbsp; Said Business School &nbsp;|&nbsp; UK and European HE &nbsp;|&nbsp; Inaugural edition 2027</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner">
+    <div class="label">Research and Use Cases</div>
+    <h2 class="section-h">Teaching Innovation in Practice</h2>
+    <p class="section-intro">The CPi supports five active areas of pedagogical experimentation and research - each grounded in educational evidence and evaluated rigorously before broader rollout.</p>
+    <div class="research-grid">
+      <div class="research-item">
+        <div class="ri-tag">Use Case 01</div>
+        <h4>AI-Enhanced Case Study Discussions</h4>
+        <p>Generative AI as a pedagogical co-pilot: real-time scenario generation, case-specific dialogue tools, and discussion prompts - freeing class time for deeper human engagement.</p>
+      </div>
+      <div class="research-item">
+        <div class="ri-tag">Use Case 02</div>
+        <h4>Interactive XR Case Studies and Business Simulations</h4>
+        <p>Extended reality environments where students inhabit boardroom crises, negotiate across cultures, and make decisions under pressure. AI-powered virtual case studies bring global business contexts into Said's classrooms as immersive, repeatable, and assessable experiences.</p>
+      </div>
+      <div class="research-item">
+        <div class="ri-tag">Use Case 03</div>
+        <h4>AI-Assisted Decision Labs</h4>
+        <p>Analytics labs where student teams use AI to parse complex datasets, generate hypotheses, and learn to critically evaluate AI outputs as a core management competency.</p>
+      </div>
+      <div class="research-item">
+        <div class="ri-tag">Use Case 04</div>
+        <h4>Personalised Feedback at Scale</h4>
+        <p>AI tutors and feedback tools integrated with Canvas - providing formative feedback on written work and assessment briefs while reducing faculty administrative burden.</p>
+      </div>
+      <div class="research-item">
+        <div class="ri-tag">Use Case 05</div>
+        <h4>Hybrid and Global Learning</h4>
+        <p>Mixed-reality connectivity that extends Said's physical classroom beyond its walls, using the School's immersive screen infrastructure alongside AI-driven engagement tools for hybrid and distributed cohorts.</p>
+      </div>
+    </div>
+    <div class="research-partnership">
+      <div class="label" style="color:var(--gold-lt);margin-bottom:0.625rem">
+        <span style="display:flex;align-items:center;gap:10px">
+          <span style="display:block;width:24px;height:1.5px;background:var(--gold-lt)"></span>
+          Scholarship of Teaching and Learning
+        </span>
+      </div>
+      <p>Underpinning all five use cases is a formal SoTL programme: a supported environment where new teaching methods are developed, rigorously evaluated, and translated into publishable scholarship. Faculty receive seed grants and join a CPi-convened working group dedicated to research on their own teaching practice. Current CPi-supported initiatives include The Full Picture project, exploring holistic approaches to learning assessment at Said. As Oxford's Academic Career and Reward Framework introduces formal recognition for teaching excellence, the CPi gives Said faculty the evidence base and development record to progress under the new pathway.</p>
+      <hr style="border:none;border-top:1px solid rgba(255,255,255,0.1);margin:1.25rem 0;">
+      <div class="label" style="color:var(--gold-lt);margin-bottom:0.625rem">
+        <span style="display:flex;align-items:center;gap:10px">
+          <span style="display:block;width:24px;height:1.5px;background:var(--gold-lt)"></span>
+          Active Research Partnership
+        </span>
+      </div>
+      <p>The CPi is developing a cross-site comparative research programme on AI and pedagogy across diverse global contexts, with partner institutions in the Global South. This work is grounded in a Fulbright scholarship and published in <em>AI and Society</em> (2024).</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHYSICAL SPACE -->
+<section id="space">
+  <div class="section-inner">
+    <div class="label">The CPi in Practice</div>
+    <h2 class="space-intro-h fade-up">A Physical Home for Teaching Innovation</h2>
+    <p class="space-intro-p">The CPi operates as a virtual centre now and is designed to activate a dedicated physical Teaching Innovation Lab at Said Business School. The space already exists. What follows is a decision about what it becomes.</p>
+
+    <div class="space-hero-img fade-up">
+      <img src="The_Nest.png" alt="The Nest - vision for the CPi physical Teaching Innovation Lab at Said Business School" loading="lazy">
+      <div class="space-hero-overlay"></div>
+      <div class="space-hero-text">
+        <div class="space-vision-tag">A Vision for Said Business School</div>
+        <h3>The Nest, Converted to the CPi Teaching Innovation Lab</h3>
+        <p>The CPi would transform The Nest into a permanent, dedicated environment for pedagogical experimentation, faculty development, AI-enhanced teaching, and scholarly research into learning itself - a space designed for the future of business education.</p>
+      </div>
+    </div>
+
+    <div class="space-grid">
+      <div class="space-col fade-up">
+        <div class="space-col-head">
+          <div class="space-col-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h4>In the Physical Space</h4>
+        </div>
+        <ul>
+          <li>Faculty pilot sessions with live AI and XR tools</li>
+          <li>Peer observation of teaching with structured feedback</li>
+          <li>Student Consultant on Teaching debriefs</li>
+          <li>Master Teachers at Oxford demonstration sessions</li>
+          <li>SoTL working group meetings and seed-grant workshops</li>
+          <li>Teaching Excellence Awards ceremony</li>
+        </ul>
+      </div>
+      <div class="space-col fade-up">
+        <div class="space-col-head">
+          <div class="space-col-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h4>In the Virtual CPi</h4>
+        </div>
+        <ul>
+          <li>AI Literacy for Educators programme modules</li>
+          <li>Oxford AI Toolkit: policy, assessment, and design tools</li>
+          <li>Resource library and SoTL publication archive</li>
+          <li>Faculty interest registration and self-referral</li>
+          <li>Teaching at Said newsletter and interview archive</li>
+          <li>Canvas course: Teaching at Said</li>
+        </ul>
+      </div>
+      <div class="space-col fade-up">
+        <div class="space-col-head">
+          <div class="space-col-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>In the Classroom</h4>
+        </div>
+        <ul>
+          <li>Faculty-led AI integration pilots in live courses</li>
+          <li>AI-enhanced case study sessions and decision labs</li>
+          <li>Assessment redesign co-developed with CPi support</li>
+          <li>Student AI fluency embedded in MBA curriculum</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="section-inner">
+    <div class="label">Team</div>
+    <h2 class="section-h">People</h2>
+    <p class="section-intro">The CPi is led by the Head of Teaching and Learning Enhancement at Said Business School and co-sponsored at School leadership level.</p>
+    <div class="team-grid">
+      <div class="team-card director">
+        <div class="team-avatar">DD</div>
+        <h4>David J. Dodick, Ph.D.</h4>
+        <div class="role">Director, CPi</div>
+        <div class="dept">Head of Teaching and Learning Enhancement, Said Business School<br>Fulbright Scholar &middot; Fulbright Specialist<br>Published: <em>AI and Society</em> (2024)<br>Oxford AI Teaching and Learning Exploratory Fund</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">JN</div>
+        <h4>Dr. Janette Nhangaba</h4>
+        <div class="role">Project Sponsor</div>
+        <div class="dept">Said Business School<br>University of Oxford</div>
+      </div>
+    </div>
+    <div class="faculty-note" style="margin-top:1.5rem">
+      <div class="label" style="margin-bottom:0.625rem">Faculty Champions</div>
+      <p>The CPi is supported by faculty champions across FAME, SIM, and TOPOS. We welcome expressions of interest from faculty who wish to pilot CPi-supported innovations in their teaching.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners">
+  <div class="partners-header fade-up">
+    <div class="label">Partners &amp; Advisors</div>
+    <h2>Confirmed Interest and Collaboration</h2>
+    <p>The CPi has attracted interest from a range of organisations whose missions intersect with teaching innovation, AI in education, and leadership development. Formal partnership arrangements are in development.</p>
+  </div>
+  <div class="partners-grid">
+    <div class="partner-card fade-up">
+      <div class="partner-tag">Educational Leadership</div>
+      <h4>The Atlantic Institute</h4>
+      <p>Supporting the development of principled leadership through education; interest in CPi's approach to teaching leadership and critical thinking in the MBA context.</p>
+    </div>
+    <div class="partner-card fade-up">
+      <div class="partner-tag">AI &amp; Human Flourishing</div>
+      <h4>Cosmos Institute</h4>
+      <p>A nonprofit dedicated to AI for human flourishing, with an established Oxford presence through the Human-Centered AI Lab. Cosmos's intersection of philosophy, AI, and education aligns directly with the CPi's pedagogical mission.</p>
+    </div>
+    <div class="partner-card fade-up">
+      <div class="partner-tag">Technology Infrastructure</div>
+      <h4>Amazon Web Services</h4>
+      <p>Interest in supporting the CPi's AI infrastructure and teaching innovation lab with cloud technology and AI tooling for education research.</p>
+    </div>
+    <div class="partner-card fade-up">
+      <div class="partner-tag">Innovation &amp; AI</div>
+      <h4>Ellison Institute of Technology</h4>
+      <p>Named in Oxford's Strategic Plan 2025-2030 as a regional innovation partner. Interest has been expressed through Oxford leadership conversations around the CPi's AI in education agenda.</p>
+    </div>
+  </div>
+  <div class="partners-note fade-up">
+    <p>The CPi maintains an active international research partnership focused on comparative research on AI and pedagogy across global contexts, with findings published in <em>AI and Society</em> (2024). Additional partnerships are in development with UK and European higher education institutions.</p>
+  </div>
+</section>
+
+<!-- TEACHING AT SAID -->
+<section id="tas">
+  <div class="tas-inner">
+    <div class="tas-img-wrap fade-up">
+      <img src="teaching-at-said.jpg" alt="Teaching at Said - Said Business School and University of Oxford" loading="lazy">
+    </div>
+    <div class="tas-body fade-up">
+      <div class="label">Our Community</div>
+      <h2>Teaching at Said: the Community the CPi Serves</h2>
+      <p>Teaching at Said is the living community initiative that the CPi grows from and feeds back into. Launched before the CPi's formal establishment, it is the brand under which a culture of teaching excellence is being built at Said: faculty interviews, professional development workshops, a termly newsletter, and the <strong>Teaching at Said Canvas course</strong> used by academics across the School.</p>
+      <p>The CPi gives Teaching at Said its institutional infrastructure, its research rigour, and its formal mandate. Teaching at Said gives the CPi its community, its warmth, and its proof of concept.</p>
+      <div class="tas-links">
+        <a href="https://oxford.instructure.com" target="_blank" rel="noopener" class="tas-link">Teaching at Said Canvas Course</a>
+        <a href="#contact" class="tas-link">Join the Community</a>
+        <a href="#toolkit" class="tas-link">Oxford AI Toolkit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<div id="toolkit">
+  <div class="toolkit-inner">
+    <div class="toolkit-left">
+      <div class="label">Oxford AI Toolkit</div>
+      <h2>Interactive Tools for Oxford Educators</h2>
+      <p>The CPi maintains the Oxford AI Toolkit - a free, publicly accessible set of interactive tools for educators navigating AI in teaching and assessment. Built by the CPi Director, grounded in Oxford policy, and used by academics across the University.</p>
+      <a href="https://gitcausuk.github.io/aitoolkit/" target="_blank" rel="noopener" class="btn-gold" style="display:inline-block">Visit the Toolkit</a>
+    </div>
+    <div class="toolkit-tools">
+      <a href="https://gitcausuk.github.io/aitoolkit/" target="_blank" rel="noopener" class="toolkit-tool">
+        <div class="toolkit-tool-content">
+          <h4>AI Use Statement Generator</h4>
+          <p>Generate policy language for your course handbook, aligned with Oxford's July 2025 guidelines</p>
+        </div>
+        <span class="toolkit-tool-arrow">&#8594;</span>
+      </a>
+      <a href="https://gitcausuk.github.io/aitoolkit/" target="_blank" rel="noopener" class="toolkit-tool">
+        <div class="toolkit-tool-content">
+          <h4>Assessment AI Audit</h4>
+          <p>Analyse your assessment for AI vulnerability and receive specific redesign options</p>
+        </div>
+        <span class="toolkit-tool-arrow">&#8594;</span>
+      </a>
+      <a href="https://gitcausuk.github.io/aitoolkit/" target="_blank" rel="noopener" class="toolkit-tool">
+        <div class="toolkit-tool-content">
+          <h4>Policy and Assessment Hub</h4>
+          <p>Oxford's complete AI policy framework, redesign strategies, and implementation guidance</p>
+        </div>
+        <span class="toolkit-tool-arrow">&#8594;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="section-inner">
+    <div class="label">Events</div>
+    <h2 class="section-h">Upcoming</h2>
+    <p class="section-intro" style="margin-bottom:2rem">Key milestones as the CPi moves toward its October 2026 pilot launch and beyond.</p>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-date"><div class="em">Trin</div><div class="ed">2026</div></div>
+        <div class="event-body">
+          <div class="ev-tag">Programme Launch</div>
+          <h4>Student Consultants on Teaching - Said Pilot</h4>
+          <p>The first cohort of student pedagogical partners begins work with Said faculty during Trinity term, using the Oxford Student Consultant Protocol.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="em">Oct</div><div class="ed">2026</div></div>
+        <div class="event-body">
+          <div class="ev-tag">Pilot Launch</div>
+          <h4>CPi Pilot Launch</h4>
+          <p>The Centre for Pedagogical Innovation opens for its pilot phase, with 3-5 Said programmes incorporating CPi-supported AI and XR innovations in the Teaching Innovation Lab.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="em">Mich</div><div class="ed">2026</div></div>
+        <div class="event-body">
+          <div class="ev-tag">Seminar Series</div>
+          <h4>Master Teachers at Oxford - Inaugural Session</h4>
+          <p>The first in a termly series where Oxford's finest educators demonstrate their practice publicly. Theme: the Oxford tutorial in the age of AI.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="em">Mich</div><div class="ed">2026</div></div>
+        <div class="event-body">
+          <div class="ev-tag">Programme Launch</div>
+          <h4>AI Literacy for Educators - Pilot Cohort</h4>
+          <p>The first cohort of the AI Literacy for Educators programme launches at Said Business School, in partnership with the Centre for Teaching and Learning, with a view to expanding across Oxford divisions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="label">Contact</div>
+      <h2>Get Involved</h2>
+      <p>Whether you are a faculty member interested in piloting CPi innovations, a researcher exploring pedagogical questions, or an institution seeking partnership, we welcome the conversation.</p>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg class="cd-svg" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <h5>Director</h5>
+          <p>David J. Dodick, Ph.D.<br>Head of Teaching and Learning Enhancement<br>Said Business School, University of Oxford</p>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg class="cd-svg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <h5>Email</h5>
+          <p><a href="mailto:david.dodick@sbs.ox.ac.uk">david.dodick@sbs.ox.ac.uk</a></p>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg class="cd-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <h5>Oxford AI Toolkit</h5>
+          <p><a href="https://gitcausuk.github.io/aitoolkit/" target="_blank">gitcausuk.github.io/aitoolkit</a></p>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg class="cd-svg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <h5>Location</h5>
+          <p>Said Business School<br>Park End Street, Oxford OX1 1HP</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Express Interest</h3>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label>Institution</label>
+        <input type="text" placeholder="Your institution">
+      </div>
+      <div class="form-group">
+        <label>Role</label>
+        <input type="text" placeholder="Your role or title">
+      </div>
+      <div class="form-group">
+        <label>Area of Interest</label>
+        <select>
+          <option>Faculty development and AI literacy</option>
+          <option>Teaching innovation and XR</option>
+          <option>Pedagogical research (SoTL)</option>
+          <option>MBA AI fluency programme</option>
+          <option>Partnership and collaboration</option>
+          <option>Annual conference</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us how you would like to engage with the CPi..."></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit(this)">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <p>Centre for Pedagogical Innovation &middot; Said Business School, University of Oxford<br>
+      Park End Street, Oxford OX1 1HP &middot; <a href="mailto:david.dodick@sbs.ox.ac.uk">david.dodick@sbs.ox.ac.uk</a></p>
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#programmes">Programmes</a>
+      <a href="#research">Research</a>
+      <a href="#space">The Space</a>
+      <a href="#team">Team</a>
+      <a href="#partners">Partners</a>
+      <a href="#tas">Teaching at Said</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="https://www.sbs.ox.ac.uk" target="_blank" rel="noopener">Said Business School</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll fade-up animation
+var fadeEls = document.querySelectorAll('.fade-up');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+fadeEls.forEach(function(el) { observer.observe(el); });
+
+var menuOpen = false;
+var navButton = document.querySelector('.nav-hamburger');
+var mobileMenu = document.getElementById('mobile-nav');
+
+function setMenuState(open) {
+  menuOpen = open;
+  mobileMenu.classList.toggle('open', menuOpen);
+  if (navButton) {
+    navButton.setAttribute('aria-expanded', String(menuOpen));
+  }
+
+  var spans = navButton ? navButton.querySelectorAll('span') : [];
+  if (spans.length === 3) {
+    if (menuOpen) {
+      spans[0].style.transform = 'rotate(45deg) translate(4.5px, 4.5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(4.5px, -4.5px)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+  }
+}
+
+function toggleNav(btn) {
+  setMenuState(!menuOpen);
+}
+
+function closeNav() {
+  setMenuState(false);
+}
+
+function handleSubmit(btn) {
+  btn.textContent = 'Message sent, thank you';
+  btn.style.background = '#1a5c38';
+  btn.style.color = '#fff';
+  btn.disabled = true;
+}
+
+// Close mobile nav when clicking outside
+document.addEventListener('click', function(e) {
+  if (!menuOpen) return;
+  var nav = document.getElementById('site-nav');
+  if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) {
+    closeNav();
+  }
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && menuOpen) {
+    closeNav();
+  }
+});
+
+// Highlight active nav link on scroll
+var sections = document.querySelectorAll('section[id], div[id]');
+var navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', function() {
+  var scrollY = window.scrollY + 100;
+  sections.forEach(function(sec) {
+    var top = sec.offsetTop;
+    var bottom = top + sec.offsetHeight;
+    if (scrollY >= top && scrollY < bottom) {
+      navLinks.forEach(function(a) {
+        a.style.color = '';
+        if (a.getAttribute('href') === '#' + sec.id) {
+          a.style.color = '#fff';
+        }
+      });
+    }
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
